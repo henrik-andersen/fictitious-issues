@@ -29,6 +29,6 @@ Providing an explicit 'don't know' category greatly reduces the proportion of ps
 
 ## Contact 
 
-For questions and comments, please write: [henrik.andersen@soziologie.tu-chemnitz.de](mailto:henrik.andersen@soziologie.tu-chemnitz.de)
+For questions and comments, please write: [henrik.andersen@soziologie.tu-chemnitz.de](mailto:henrik.andersen@soziologie.tu-chemnitz.de).
 
 
