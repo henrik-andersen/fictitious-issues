@@ -8,6 +8,8 @@
 
 \usepackage{tikz}
 \usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage{caption}
 \usepackage{threeparttable}
 \usepackage{booktabs}
 \usepackage{dcolumn}
@@ -67,8 +69,8 @@ of Technology, Thüringer Weg 9, 09126 Chemnitz.}
 xxx
 \end{abstract}
 
-\keywords{pseudo opinions; ficitious issues; survey research; online
-surveys; response latencies}
+\keywords{survey methodology; online surveys; pseudo opinions;
+fictitious issues; response latencies}
 
 \maketitle
 
@@ -91,80 +93,105 @@ less dropouts \citep{Shin2011}.
 On the other hand, there are issues of coverage and representativeness
 associated with typically non-probability sampled online surveys.
 Furthermore, are lower item nonresponse rates necessarily an indicator
-of higher quality data? If the answers being supplied are nonsense, are
-they really preferable to missing values? Exactly this is the concern
-some have with online surveys
+of higher quality data? If the answers are being supplied carelessly and
+lack validity, are they really preferable to missing values? Exactly
+this is the concern some have with online surveys
 \citep{Leiner2019, Kaminska2010, Vannette2014}. Namely, online surveys
-often employ `professional' panelist who receive incentives for taking
+often employ `professional' panelists who receive incentives for taking
 part \citep{Stocke2006}. They are motivated by monetary concerns or a
 `work-like' desire to fulfill their obligations \citep{Silber2013}.
 Simple quality control measures are typically used by panel operators to
 filter out respondents that provide obviously poor-quality data, meaning
 panelists are incentivized to make it to the end of the survey without
-skipping too many questions or giving non-substantive (``don't know'')
+skipping too many questions, answering too quickly \citep[`clicking
+through',][]{Leiner2019} or giving non-substantive (``don't know'')
 responses.
 
 These issues are made even more prickly by the fact that online surveys
 provide less control over the `interview' situation and it is more
 difficult to tell whether a respondent is distracted, has understood the
 question properly, or is giving misleading or meaningless data
-maliciously \citep{Leiner2019}. This means that some methods of
-assessing the quality of data are unavailable for online surveys, i.e.,
-interviewer recorded impressions (``Did the respondent understand the
-question?''). Others, like post hoc data cleaning methods, i.e.,
-removing fast respondents or individual responses, identifying and
-removing straight-liners, etc., are available, but can inadvertently
-introduce new biases to the data \citep{Leiner2019}. One promising
-approach is to assess the degree of mental elaboration expended for a
-response, which can be done non-reactively with the use of response
-latencies \citep[reactive methods may try to directly assess the
-respondent's motivation and opportunity by asking directly about
+purposefully \citep{Leiner2019, Wolter2019}. This means that some
+methods of assessing the quality of data are unavailable for online
+surveys, i.e., interviewer recorded impressions (``Did the respondent
+understand the question?''). Others, like post hoc data cleaning
+methods, i.e., removing fast respondents or individual responses,
+identifying and removing straight-liners, etc., are available, but can
+inadvertently introduce new biases to the data \citep{Leiner2019}. One
+promising approach is to assess the degree of mental elaboration
+expended for a response, which can be done non-reactively with the use
+of response latencies \citep[reactive methods may try to directly assess
+the respondent's motivation and opportunity by asking directly about
 them,][]{Mayerl2008, Stocke2006}. Namely, if we can assess the effort
 the respondent is willing to expend to answer a survey question, we can
-begin to get an idea of the quality of their answer.
+begin to get an idea of the quality of their answer \citep[
+p.~9]{Lenzner2011}.
 
 What make response latencies difficult to interpret is that they can
 indicate both the degree of mental elaboration, or the accessibility of
-the attitude object \citep{Stocke2004c}. I.e., if we observe a fast
-response, we cannot be sure whether it was because the respondent had a
-salient attitude ready to express spontaneously, or whether the
-respondent was lacking either motivation or opportunity and turned to
-some response set to avoid putting in the effort to properly answer the
-question (e.g., satisficing). This is particularly troubling because
-they suggest two completely different conclusions. Namely, accessible
-attitudes are typically strong ones, so fast responses motivated by an
-accessible attitude will likely possess high (predictive) validity. On
-the other hand, fast responses due to satisficing can be completely
+the attitude object
+\citep{Stocke2004c, Andersen2017, Andersen2019b, Mayerl2019}. I.e., if
+we observe a fast response, we cannot be sure whether it was because the
+respondent had a salient attitude ready to express spontaneously, or
+whether the respondent was lacking either motivation or opportunity and
+turned to some response set to avoid putting in the effort to properly
+answer the question (e.g., satisficing). This is particularly troubling
+because they suggest two completely different conclusions. Namely,
+accessible attitudes are typically strong ones, so fast responses
+motivated by an accessible attitude will likely possess high validity.
+On the other hand, fast responses due to satisficing can be completely
 independent of the question content, indicating poor validity.
 
-In this article, we propose using \textit{fictitious issues}, i.e.,
-questions about nonexistent topics, together with response latencies to
-assess the quality of data gathered in online surveys. With fictitious
-issues, we can be sure that the respondent does not have an accessible
-attitude --- how could they when the attitude object does not exist?
-Therefore, fast or slow responses can logically only be a sign of the
-cognitive effort a respondent is willing to exert, either to generate an
-ad hoc attitude or come to the honest conclusion that they ``don't
-know''.
+In this article, we propose using \textit{fictitious issues} together
+with response latencies to assess the quality of the data generated in
+our online survey. Fictitious issues refer to survey questions about
+nonexistent or highly obscure topics; things that essentially no one
+should have a pre-conceived opinion on \citep{Sturgis2010, Wolter2019}.
+In fact, it has been demonstrated repeatedly that some respondents will
+give so-called `pseudo opinions' on topics with which they are
+completely unfamiliar
+\citep{Sturgis2010, Payne1951, Bishop1980, Schuman1980}. In the context
+of our study, we can rule out the possibility that fast responses were
+caused by accessible attitudes: how could they have an accessible
+attitude when the attitude object does not exist? Therefore, fast or
+slow responses can logically only be a sign of the cognitive effort a
+respondent is willing to exert \citep{Stocke2004c, Andersen2017}, either
+to generate an ad hoc attitude or come to the honest conclusion that
+they ``don't know''.
 
 In this context, the question of whether missing values are preferable
 to deliberate responses to fictitious issues is open. The imputed
 meaning hypothesis states that, when faced with unfamiliar or obscure
 topics, survey respondents attempt to generate an ad hoc opinion by
 searching for cues and abstracting the question to a more general level
-\citep{Sturgis2010}. If this is the case, then these `pseudo opinions',
-as they are sometimes called, can be seen as valid measures of
-generalized attitudes with which the respondent connects the survey
-item. If this is seen as desirable by the researcher, pseudo opinions
-may be preferable to missing values. If, on the other hand, the primary
-interest is the specific attitude object, perhaps because generalized
-attitudes are not expected to possess predictive validity, then pseudo
-opinions should be avoided. To investigate this issue, we perform two
-split ballot experiments: one in which we vary the presence of an
-explicit ``don't know'' category, and another in which we instruct the
-respondents to either answer spontaneously or deliberately.
+\citep{Sturgis2010}. If this is the case, then these `pseudo opinions'
+can be seen as valid measures of generalized attitudes with which the
+respondent connects the survey item. If this is seen as desirable by the
+researcher, pseudo opinions may be preferable to missing values. If, on
+the other hand, the primary interest is the specific attitude object,
+perhaps because generalized attitudes are not expected to possess
+predictive validity, then pseudo opinions should be avoided. To
+investigate this issue, we perform two split ballot experiments: one in
+which we vary the presence of an explicit ``don't know'' category, and
+another in which we instruct the respondents to either answer
+spontaneously or deliberately.
 
-We proceed as follows: xxx
+We proceed as follows: First, in the Background section, we give a brief
+overview of the issue of assessing the quality of survey data and
+discuss poor quality data in the context of satisficing and optimizing.
+We discuss how these two `modes' of information processing relate to the
+dominant hypotheses concerning pseudo opinions, i.e., the mental coin
+flip and imputed meaning hypotheses. In the Analysis section, introduce
+the data and examine the prevalence of pseudo opinions in our survey, as
+well as the distribution of the response latencies. We choose a
+hierarchical probit regression model to examine the effect of response
+latencies (as well as other experimental and underlying
+respondent-related characteristics) on the propensity to give a pseudo
+opinion. Our model controls for unobserved respondent-related
+confounders in a type of fixed effects probit model. We discuss the
+models in the Results section before summarizing the findings and
+providing an outlook for future work in the Conclusion and Discussion
+section.
 
 \hypertarget{background}{%
 \section{Background}\label{background}}
@@ -186,7 +213,7 @@ satisficing. Namely, panelists are motivated primarily by monetary
 incentives; they are less likely to be intrinsically motivated out of
 interest for the survey topic \citep{Silber2013}, or due to their
 positive attitude towards surveys in general
-\citep{Stocke2004a, Stocke2004c}.
+\citep{Stocke2004a, Stocke2004c, Dingelstedt2015}.
 
 Satisficing \citep{Krosnick1991, Roberts2019} in the context of surveys
 refers to a set of strategies employed by respondents who are
@@ -224,9 +251,9 @@ moves from optimizing to weak to even strong satisficing. I.e.,
 \citep{Roberts2019}. Still another form of response behaviour can be
 distinguished from strong satisficing in which the respondent does not
 even attempt to comprehend the question, thereby skipping even the first
-stage. This is sometimes referred to as ``mindless'' responding
-\citep{Vannette2014} in that the respondent's attention is not focused
-on the survey questions.
+stage. This is sometimes referred to as ``mindless''
+\citep{Vannette2014} or ``careless'' \citep{Leiner2019} responding in
+that the respondent's attention is not focused on the survey questions.
 
 As such, we can think of the quality of a response on a continuum from
 optimizing to mindless responding, with weak and strong satisficing
@@ -258,39 +285,36 @@ burden of the task.
 outcomes}\label{expected-behavioural-outcomes}}
 
 We are primarily interested in two behavioural outcomes when it comes to
-responses: (1) substantive ``pseudo opinions'' and (2) nonsubstantive
-responses, which are given by the respondent selecting ``don't know'' or
-skipping the question. Professional panelists, especially those who
-habitually give poor quality answers, are de-incentivized to give
-nonsubstantive responses, because an over-reliance on them could trigger
-the panel operator's quality control mechanisms and have them removed
-from the panel for future surveys (thereby cutting them off from the
-monetary benefits). For this reason, even very weakly motivated
-panelists will likely turn to other satisficing strategies besides
-nonresponses in the form of ``don't know''. If satisficing
-respondents\footnote{Throughout, we may, for the sake of expediency,
-  refer to `satisficers' and `optimizers'. This should be taken as
-  shorthand for 'a respondent that is currently, specific to one single
-  survey item, satisficing/optimizing".} encounter a question with which
-they are unfamiliar with, they may look to contextual hints to give a
-spontaneous cue-driven response. However, this process will necessarily
-be a form of satisficing, because (a) strictly speaking previous
-memories and information concerning the attitude object cannot
+responses to fictitious issues: (1) substantive ``pseudo opinions'' and
+(2) nonsubstantive responses, which are given by the respondent
+selecting ``don't know'' or skipping the question. Professional
+panelists, especially those who habitually give poor quality answers,
+are disincentivized to give nonsubstantive responses, because an
+over-reliance on them could trigger the panel operator's quality control
+mechanisms and have them removed from the panel for future surveys
+(thereby cutting them off from the monetary benefits). For this reason,
+even very weakly motivated panelists will likely turn to other
+satisficing strategies besides nonresponses in the form of ``don't
+know''. If satisficing respondents\footnote{For the sake of expediency,
+  we may sometimes refer to `satisficers' and `optimizers'. This should
+  be taken as shorthand for ``a respondent that is currently, specific
+  to one single survey item, satisficing/optimizing''.} encounter a
+question with which they are unfamiliar, they may look to contextual
+hints to give a spontaneous cue-driven response. However, this process
+will necessarily be a form of satisficing, because (a) strictly speaking
+previous memories and information concerning the attitude object cannot
 exist\footnote{It is conceivable that the respondent could mistake the
   fictitious content for some existent one, but we assume this will
   happen infrequently, and that the likelihood of this mistake is not
   related to any of the other predictors of interest, so that they
   should be ignorable.} and (b) a drawn-out futile memory search defeats
-the purpose of satisficing as a way to avoid effort. Mindlessly
-responding-respondents\footnote{The respondents are of course not
-  mindless; their current response behaviour may be taking place without
-  much thought given to the question contents though.} who do not wish
-to trigger quality control mechanisms will respond quasi-randomly using
-effortless patterns and heuristics, but will tend not to rely overly on
-the ``don't know'' category. For these reasons, we believe that
-satisficing respondents will tend towards substantive answers to
-unfamiliar of wholly fictitious topics out of fear of triggering quality
-control mechanisms.
+the purpose of satisficing as a way to avoid effort. Carelessly
+responding-respondents who do not wish to trigger quality control
+mechanisms will respond quasi-randomly using effortless patterns and
+heuristics, but will tend not to rely overly on the ``don't know''
+category. For these reasons, we believe that satisficing respondents
+will tend towards substantive answers to unfamiliar of wholly fictitious
+topics out of fear of triggering quality control mechanisms.
 
 On the other hand we have optimizing respondents. These will tend to be
 respondents that are (currently) motivated and have sufficient
@@ -300,10 +324,10 @@ motivation is often cited as the respondent's attitudes towards surveys
 generally useful and accurate tend to be motivated to provide high
 quality responses. Ability is often tied to cognitive abilities (e.g.,
 understanding the question, although this is presumably less of an issue
-for professional panelists), or time pressure. Respondents that lack
-time pressure have the luxury of deliberating on a question before
-providing an answer. It is unclear how optimizing respondents behave
-towards fictitious or obscure topics. \citet{Sturgis2010} suggests that
+for professional panelists) or time pressure. Respondents that lack time
+pressure have the luxury of deliberating on a question before providing
+an answer. It is unclear how optimizing respondents behave towards
+fictitious or obscure topics. \citet{Sturgis2010} suggests that
 respondents attempt to impute a meaning when faced with an unfamiliar
 topic, by looking for clues in the question and extrapolating to some
 seemingly related attitude object. On the other hand, optimizing
@@ -313,14 +337,60 @@ do not feel sufficiently familiar with.
 
 Based on these points, it is unclear whether optimizing respondents will
 tend towards imputed-meaning driven pseduo-opinions or nonsubstantive
-``don't know'' avoidance. The imputed meaning hypothesis is persuasive,
-but there is a lack of empirical evidence for it. In online surveys
-employing professional panelists, the idea that many or even most
-respondents consider their responses carefully is implausible. Without
-taking the motivation and opportunity of a respondent into account, the
-simple fact that a respondent gave a substantive response could just as
-well be evidence of satisficing behaviour ranging from simple heuristics
-to a mental coin flip.
+`don't know' avoidance. The imputed meaning hypothesis is persuasive,
+but there is a surprising lack of empirical evidence for it. In fact,
+very few works that even mention the ``imputed meaning'' or ``imputed
+understanding'' hypothesis, let alone provide empirical evidence for it
+\citetext{\citealp[p.~1219]{Schuman1980}; \citealp[p.~208]{Bishop1980}; \citealp{Morin1995}; \citealp{Bishop2001}; \citealp[p.~79
+reference their own empirical findings, while \citet{Smith1981}, p.~14,
+26]{Sturgis2010}; \citealp[p.~26--33]{Bishop2005}; \citealp[p.~62]{Kreuter2002}; \citealp[p.~61]{Noack2015}; \citealp[p.~344
+discuss the hypothesis but do not investigate it
+empirically.]{Wolter2019}} In online surveys employing professional
+panelists, the idea that many or even most respondents consider their
+responses carefully is implausible. Without taking the motivation and
+opportunity of a respondent into account, the simple fact that a
+respondent gave a substantive response to a fictitious issue could just
+as well be evidence of satisficing behaviour ranging from simple
+heuristics to a mental coin flip.
+
+\begin{figure}
+\centering
+\caption{Path diagram, (lack of) motivation and opportunity leads to satisficing, satisficing leads to pseudo opinions?}
+\begin{tikzpicture}[node distance={15mm}, main/.style = {draw, circle}]
+\node[main] (M) {M};
+\node[main] (O) [below of=M] {O};
+\coordinate (Middle) at ($(M)!0.5!(O)$);
+\node[main] (L) [right of=Middle] {S};
+\node[main] (P) [right of=L] {P};
+\draw[->] (M) -- node[midway, above] {-} (L);
+\draw[->] (O) -- node[midway, below] {-} (L);
+\draw[->] (L) -- node[midway, above] {?} (P);
+\draw[<->] (M.west) to [bend right] (O.west);
+\end{tikzpicture}
+\caption*{\footnotesize M: Motivation, O: Opportunity, S: Satisficing, P: Pseudo opinion}
+\end{figure}
+
+We include two experiments in our study to more closely examine some
+boundary conditions. First, it has been shown repeatedly that the
+inclusion of an explicit `don't know' category signals to the respondent
+that it is okay to not have an opinion. \citet{Schuman1980}, for
+example, found that the inclusion of an explicit `don't know' category
+reduced substantive responses to the fictitious `Agricultural Trade Act
+of 1978' by around 20 percent points (implicit `don't know': 30.8\%,
+explicit `don't know': 10\%). Similarly, \citet{Bishop1983} found that
+substantive responses to the fictitious `Public Affairs Act' dropped
+from 51.6\% in the group with an implicit `don'k know' category,
+vs.~only 41.2\% in the group with an explicit `don't know'.
+
+On the other hand, we believe that satisficing could lead to more
+substantive responses to fictitious issues since online panel
+participants are disincentivized to skip questions and rely too heavily
+on the `don't know' category. So, we wanted to see whether we could
+discourage satisficing by simply asking the respondents to think
+carefully about their responses before plugging them in. Such speed
+vs.~accuracy instructions have been used before
+\citep{Fazio1990b, Mayerl2009} to attempt to induce either an automatic
+or deliberate mode of information processing in respondents.
 
 \hypertarget{indicators-of-satisficing-and-optimizing}{%
 \subsection{Indicators of satisficing and
@@ -329,10 +399,11 @@ optimizing}\label{indicators-of-satisficing-and-optimizing}}
 It is very easy to record passive response times in online surveys.
 Online survey software often automatically records the response time per
 page or the whole survey completion time. There are, however, drawbacks
-to these measures. For example, if less motivated respondents tend to be
-more distracted, then the level of distractedness will be a confounder
-of the effect of motivation on responses. Thus, completion times may not
-be an accurate indicator of effort. Furthermore, while per-page
+to these passive measures. For example, if less motivated respondents
+tend to be more distracted, and more distracted respondents answer more
+slowly, then the effect of response latencies as a measure of effort on
+responses could suppressed. Thus, passively collected completion times
+may not be an accurate indicator of effort. Furthermore, while per-page
 responses and completion times can reveal a tendency, they assume the
 motivation and opportunity of the respondent is constant throughout the
 survey (or within one survey page). Surely the contents of the item can
@@ -352,13 +423,12 @@ behaviour in a multilevel framework. This gives us the added opportunity
 to hold respondent-level characteristics (personality, reading speed,
 internet connection, etc.) constant as well.
 
-Both forms of satisficing, as well as mindless responding represent
+Both forms of satisficing, as well as careless responding represent
 strategies to reduce effort. As such, they should be associated with
 faster response latencies, otherwise they lose their appeal: careful or
-deliberate satisficing is an oxymoron. While it is typically the case
-that fast responses can either be a sign of satisficing or mindless
-responding on the one hand, or highly salient attitudes, on the other,
-in the case of fictitious issues, they can only be a sign of the former.
+deliberate satisficing is an oxymoron. Normally, fast responses can be a
+sign of either satisficing or highly salient attitudes, but with
+fictitious issues, fast response latencies can only signal satisficing.
 Because the attitude object does not exist, there cannot exist salient
 attitudes towards it. Based on the contextual clues surrounding the
 fictitious issue, the respondent may be able to quickly impute a meaning
@@ -366,8 +436,9 @@ and give a response based on that understanding, but this is not a
 characteristic of a high-quality answer. Fast substantive responses to
 fictitious issues are either a sign that the respondent did not properly
 read the question (and the answer is therefore independent of the
-question contents) or the respondent read the question, quickly imputed
-a meaning and gave an answer based on that understanding. But this is
+question contents), read it but then chose a response randomly (mental
+coin flip), or the respondent read the question, quickly imputed a
+meaning and gave an answer based on that understanding. But this is
 practically the definition of satisficing; to come to the first-best
 plausible response and move on. If the respondent was optimizing, they
 would be tempted to verify if their gut-response is appropriate: e.g.,
@@ -396,118 +467,82 @@ when faced with unfamiliar topics by default.
 \hypertarget{data-and-variables}{%
 \subsection{Data and variables}\label{data-and-variables}}
 
-\begin{table}
-
-\begin{threeparttable}
-\caption{\label{tab:unnamed-chunk-1}\label{tab:freqs}Responses to existent institutions in percent}
-\centering
-\begin{tabular}[t]{lrrrrrrrr}
-\toprule
-  & BW & DWB & UN & GP & BKA & RLF & KAF & IPCC\\
-\midrule
-negative & 36.80 & 9.55 & 21.43 & 22.59 & 19.10 & 15.76 & 12.73 & 24.22\\
-positive & 56.37 & 86.10 & 71.43 & 71.20 & 72.13 & 42.62 & 62.73 & 44.18\\
-continue & 5.20 & 1.79 & 4.50 & 4.43 & 5.43 & 15.45 & 10.95 & 10.40\\
-don't know & 1.63 & 2.56 & 2.64 & 1.79 & 3.34 & 26.16 & 13.59 & 21.20\\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}
-\small
-\item [] BW: German Armed Forces (Bundeswehr), DWB: Doctors without Boarders, UN: United Nations, GP: Greenpeace, BKA: German Federal Criminal Police (Bundeskriminalamt), RLF: Rosa-Luxemburg-Foundation, KAF: Konrad-Adenauer-Foundation, IPCC: Intergovernmental Panel on Climate Change
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-
-\begin{table}
-
-\begin{threeparttable}
-\caption{\label{tab:unnamed-chunk-1}\label{tab:freqs_fi}Responses to fictitious institutions in percent}
-\centering
-\begin{tabular}[t]{lrrrrrr}
-\toprule
-  & EC & CAA & PETI & GNF & HSF & WSA\\
-\midrule
-negative & 15.92 & 10.95 & 15.37 & 22.28 & 10.48 & 13.59\\
-positive & 58.54 & 48.06 & 28.34 & 22.59 & 12.97 & 26.48\\
-continue & 8.54 & 11.72 & 18.48 & 17.86 & 30.90 & 21.35\\
-don't know & 17.00 & 29.27 & 37.81 & 37.27 & 45.65 & 38.59\\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}
-\small
-\item [] EC: Environmental Court, CAA: Coastal Aid Agency, PETI: Prague Energy Transition Initiative, GNF: German Nuclear Forum, HSF: Herbert-Schmaar-Foundation, WSA: World Space Agency
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-
 \begin{figure}
 
-{\centering \subfloat[\label{fig:raw}Raw latencies\label{fig:response-latency-plots-1}]{\includegraphics[width=0.4\linewidth]{article_files/figure-latex/response-latency-plots-1} }\subfloat[\label{fig:invalid}Valid latencies less than 2,000 sec.\label{fig:response-latency-plots-2}]{\includegraphics[width=0.4\linewidth]{article_files/figure-latex/response-latency-plots-2} }\newline\subfloat[\label{fig:outlier}Latencies less than 2 sd above the mean\label{fig:response-latency-plots-3}]{\includegraphics[width=0.4\linewidth]{article_files/figure-latex/response-latency-plots-3} }
+{\centering \subfloat[\label{fig:outlier}Response latencies per respondent, per item\label{fig:response-latency-plots-1}]{\includegraphics[width=0.4\linewidth]{article_files/figure-latex/response-latency-plots-1} }\subfloat[\label{fig:outlier_mean}Average response latencies per respondent\label{fig:response-latency-plots-2}]{\includegraphics[width=0.4\linewidth]{article_files/figure-latex/response-latency-plots-2} }
 
 }
 
-\caption{\label{fig:rls}Response latency treatment}\label{fig:response-latency-plots}
+\caption{\label{fig:rls}Response latencies, outliers removed}\label{fig:response-latency-plots}
 \end{figure}
 
 We conducted an online survey using an online access panel provided by
 an online panel provider from 16th to 25th August 2019. The target
-population was defined as adults between the age of 18 and 69 years with
-quotas for age and sex in place to ensure the sample was representative
-of the target population on those characteristics. The respondents were
-recruited from the provider's pool of `professional' respondents.
+population was defined as adults between the age of 18 and 69 years
+residing in Germany with quotas for age and sex in place to ensure the
+sample was representative of the target population on those
+characteristics. The respondents were recruited from the provider's pool
+of `professional' respondents.
 
 The pseudo opinions portion of the study consisted of a question battery
 in which the respondents were asked using a binary scale to give us
 their opinion (mostly positive vs.~mostly negative) on 14 different
-organizations and institutions. These covered eight which truly existed,
-and six which were fabricated by us. This part of the study encompassed
-a split of 1288 randomly chosen respondents out of the full sample of
-3,044. Within the group of these 1288 respondents, two randomized
-experiments were conducted in which, firstly, 645 respondents were
-presented with an explicit ``don't know'' category throughout, while for
-the remaining 643 there was no explicit ``don't know'' category
-available. For these respondents, the option was available for them to
-simply click on ``continue'' to skip the question. Secondly, within the
-implicit ``don't know'' group, 322 were given the instructions to think
-carefully and provide the most accurate answers possible, and 321 were
-given the instructions not to think too long, and to provide spontaneous
-answers. In the explicit ``don't know'' group, 322 were given the
-accuracy instructions and 323 the speed instructions.
-
-As noted, we asked respondents to tell us their opinion on a binary
-scale (``mostly positive'' vs.~``mostly negative'') towards a range of
-organizations and institutions.\footnote{The question text read: ``For
-  the following questions, we are interested in your opinions towards
-  different organizations and institutions. We would like to know
-  whether you find these organizations generally good or bad.''} In
-total, respondents were presented with 14 of these organizations, eight
-of which truly exist (e.g., Doctors Without Boarders, Greenpeace, the
-German Armed Forces), six of which were fabricated. These were the
+organizations and institutions. Eight of these truly existed: The German
+Armed Forces (Bundeswehr), Doctors without Borders, The United Nations,
+Greenpeace, The German Federal Criminal Police (Bundeskriminalamt), The
+Rosa-Luxemburg-Foundation (associated with the German left-wing
+political party, Die Linke), The Konrad-Adenauer-Foundation (associated
+with German Christian Democratic party) and the Intergovernmental Panel
+on Climate Change. Six of these were fabricated by us: the
 ``Environmental Court'' (EC), the ``Coastal Aid Agency'' (CAA), the
 ``Prague Energy Transition Initiative'' (PETI), the ``German Nuclear
 Forum'' (GNF), the ``Herbert-Schmaar-Foundation'' (HSF) and the ``World
-Space Agency'' (WSA). Table \ref{tab:freqs} shows the responses to the
-existent institutions and organization, while Table \ref{tab:freqs_fi}
-shows the responses to the fictitious ones. The ``don't know'' category
-was available only to those respondents in the ``explicit don't know''
-experimental group.
+Space Agency'' (WSA).
+
+This part of the study encompassed a split of 1288 randomly chosen
+respondents out of the full sample of 3,044. Within the group of these
+1288 respondents, two randomized experiments were conducted in which,
+firstly, 645 respondents were presented with an explicit ``don't know''
+category throughout, while for the remaining 643 there was no explicit
+``don't know'' category available. For these respondents, the option was
+available for them to simply click on ``continue'' to skip the question.
+Secondly, within the implicit ``don't know'' group, 322 were given the
+instructions to think carefully and provide the most accurate answers
+possible, and 321 were given the instructions not to think too long, and
+to provide spontaneous answers. In the explicit ``don't know'' group,
+322 were given the accuracy instructions and 323 the speed instructions.
 
 \hypertarget{operationalization}{%
 \subsection{Operationalization}\label{operationalization}}
 
-Response latencies needed to be treated before analysis, see Figure
-\ref{fig:rls}. Panel \ref{fig:raw} shows the original, raw latencies
-before any treatment. Several measurements stand out as being extremely
-long. The longest response latency was nearly 20,000 seconds or 5.6
-hours. Still others were upwards of 2,000 seconds or 33.3 minutes. These
-cannot possibly be thought of as valid responses (in the sense that they
-would tell us anything about underlying cognitive processes); very
-likely the respondent interrupted the survey and came back to it much
-later. Panel \ref{fig:invalid} shows the latencies after eliminating
-those that were longer than 2,000 seconds. Panel \ref{fig:outlier} shows
-a second treatment step in which latencies two standard deviations above
-the mean (after removing latencies longer than 2,000 seconds) were
-treated as outliers.
+The main independent variable in the study are the recorded response
+latencies. These needed to be treated for outliers before running the
+models as some measurements stood out for being extremely long. The
+longest response latency was nearly 20,000 seconds or 5.6 hours. Still
+others were upwards of 2,000 seconds or 33.3 minutes. These cannot
+possibly be thought of as valid responses (in the sense that they would
+tell us anything about underlying cognitive processes); very likely the
+respondent interrupted the survey and came back to it much later. So, we
+proceed in two steps. First, we removed individual responses with
+latencies longer than 2,000 seconds as obviously invalid. The cutoff of
+2,000 seconds or about 33 minutes was chosen rather arbitrarily, but it
+is not overly restrictive. Second, we further removed those latencies
+that were two standard deviations above the mean (i.e.~less than
+\(3.46 + 2 \cdot 16.18 = 35.82\) seconds), as suggested by
+\citet{Mayerl2008}, p.~59f. The distribution of the outlier-treated
+latencies is shown in Figure \ref{fig:outlier}.
+
+As will be discussed below in the \protect\hyperlink{method}{Method}
+section, in order to ensure the effects of the response latencies are
+not confounded by respondent-related stable characteristics (e.g., age,
+sex, education, reading speed, native language, etc.), we will employ
+the average response latencies per respondent in the models. These can
+be interesting in their own right, however, and represent the average
+speed with which a respondent answered over the six fictitious issues.
+So, we call the response latencies per item, per respondent the
+level-one response latencies, \(\text{rl}_{ij}\), \(i = 1, \ldots, N\),
+\(j = 1, \ldots, 6\), and the response latencies per respondent across
+all items the level-two response latencies, \(\bar{\text{rl}}_{i}\).
 
 \hypertarget{method}{%
 \subsection{Method}\label{method}}
@@ -522,87 +557,55 @@ the nonlinear probit model we use here, it allows for effects that are
 not monotonic (they do not have to either increase or decrease over all
 values of the independent variable, but can change direction).
 
-The dependent variable is a binary outcome (nonsubstantive,
-substantive). The response latencies are continuous and vary across both
-individuals and items, while the experimental conditions vary between
-individuals but do not change within individuals. With a manageable
-number of items, we can include dummy variables to control for the
-item-specific effects, i.e., characteristics of particular items that
-influence the way in which all respondents approach the question.
+The dependent variable is a binary outcome (0: nonsubstantive, 1:
+substantive), so we turn to a probit regression model. The level-one
+response latencies are continuous and vary across both individuals and
+items, while the level-two average response latencies per respondent
+vary only across individuals but not items. Likewise, the experimental
+conditions vary between individuals but do not change within
+individuals. With a manageable number of items, we can include dummy
+variables to control for the item-specific effects, i.e.,
+characteristics of particular items that influence the way in which all
+respondents approach the question.
 
-The unobserved effects probit model \citep{Wooldridge2002} lends itself
-well to this setup. We can write the model as\\
-\begin{align}
-P(y_{ij} = 1| \bm{w}_{i}, \alpha_{i}) = \Phi(\bm{w}_{ij} + \alpha_{i}), \ j = 1, \ldots, J \label{eq:probit}
-\end{align} where \(\Phi(\cdot)\) is the standard normal cumulative
-distribution function.
-\(\bm{w}_{ij} = (\bm{x}_{ij}, \bm{z}_{i}, \bm{\lambda}_{j})\) and
-\(\bm{x}_{ij} = (\mathsf{rl_{ij}}, \mathsf{rl^{2}_{ij}})\) are the
-response latency variables,
-\(\bm{z}_{i} = (\mathsf{speed_{i}}, \mathsf{impdk_{i}})\) are the
-experimental conditions and
-\(\bm{\lambda}_{j} = (\lambda_{1}, \lambda_{2}, \ldots, \lambda_{J-1})\)
-are item dummies (less the reference category).
+We want to investigate the effect of the level-one response latencies
+(per item, per respondent) on the propensity for a substantive response.
+To ensure that these effects are unbiased by unobserved
+individual-specific characteristics (reading speed and comprehension,
+internet connection, distractedness, etc.), we employ a correlated
+random effects model, which can be seen as a kind of \emph{fixed
+effects} probit regression model \citep{Mundlak1978, Wooldridge2002}.
+This works by including each respondent's average response latency in
+the model. This accounts for any covariance between the level-one
+response latencies and any unobserved individual-specific effects. We
+furthermore demean the level-one response latencies by subtracting the
+level-two response latency (the individual's average response latency)
+from each. This gives the effects of the level-one response latencies
+their interpretation as `within-effects', i.e., the effect of a response
+latency that deviates from the person's usual speed on the propensity
+for a substantive response
+\citep{Ruettenauer2019, Hamaker2019, Wooldridge2002}. The effects of the
+level-two response latencies can be interpreted as `between-effects',
+i.e., the effect of a person that answers more or less quickly
+\emph{compared to other respondents} on the propensity for a substantive
+response \citep{Bell2015, Schunck2017}.
 
-Note that the first equality in Equation \eqref{eq:probit} is the
-assumption of strict exogeneity, i.e., after controlling for the stable
-individual differences in \(\alpha_{i}\), the predictors from other
-points in time have no effect on the current point in time
-\citep[p.~483]{Wooldridge2002}. This is why \(\bm{w}_{i}\) changes to
-\(\bm{w}_{ij}\). We assume further that the only source of serial
-correlation is \(\alpha_{i}\) so that once we have conditioned on it,
-the errors are serially uncorrelated, and the likelihood function can be
-derived as the product of the individual probabilities for \(y_{ij}\).
+The speed vs.~accuracy and implicit vs.~explicit `don't know'
+experimental variables vary between individuals but not items. The
+experimental conditions were assigned randomly. We also include
+\(J - 1\) item dummies (with the `Environmental Court' as the reference
+category) to control for the situation in which unobserved
+characteristics of the items themselves (e.g., wording, length,
+contents) are correlated with the response latencies.
 
-Correlations between the nonexperimental variables of interest (the
-response latencies) and item characteristics (difficulty of the
-question, wording effects, etc.) are controlled for by including the
-item dummies in the equation. But we want to also allow (and control)
-for correlations between the individual effects and the response
-latencies. Importantly, we want to look at the speed of responses
-relative to the person's average speed. That way we can assess within
-individuals whether faster (satisficing) or slower (optimizing) than
-average responses predict pseudo opinions. Essentially, we want to
-specify a kind of binary outcome \textit{fixed effects} model in order
-interpret the response latency effects as within-effects and ensure that
-they are unbiased by between-person stable characteristics.
-
-The \citet{Mundlak1978} approach to allowing for correlated individual
-effects involves making assumptions about the distribution of the
-individual effects \citep[p.~487]{Wooldridge2002}. Namely, we assume the
-individual effects are normally distributed as \begin{align}
-\alpha_{i} | \bm{w}^{*}_{i} & \sim \mathcal{N}(\psi + \bar{\bm{w}}^{*}_{i}\bm{\zeta}, \sigma^{2}_{\alpha})
-\end{align} where \(\bm{w}^{*}_{i} = (\bm{x}_{i},\bm{z}_{i})\), i.e.,
-\(\bm{w}_{i}\) without the item dummies.
-
-That is, we assume
-\(\alpha_{i} = \psi + \bar{\bm{w}}^{*}_{i}\bm{\zeta} + \upsilon_{i}\) so
-that the error \(\upsilon_{i}\) is independent of the predictors. Now we
-substitute this back into Equation \eqref{eq:probit} for \begin{align}
-P(y_{ij} = 1| \bm{w}_{i}) = \Phi(\psi + \bm{w}_{ij}\bm{\beta} + \bar{\bm{w}}^{*}_{i}\bm{\zeta}), \ j = 1, \ldots, J.
-\end{align} Essentially, we specify a multilevel model with random
-intercepts (representing the individual effects) and include the
-within-individual (or `cluster') means as a predictor of these random
-intercepts. The cluster means are thus correlated with both the outcome
-(the average outcome, so to speak) and the predictors in \(\bm{w}_{i}\).
-This covariance is partialled out by including both in the regression so
-that \(\bm{\beta}\) represent within-person effects that are
-unconfounded by \(\alpha_{i}\)
-\citep{Ruettenauer2019b, Hamaker2019, Wooldridge2002, Mundlak1978, Schunck2017}.
-
-It is important to note that the item-invariant predictors
-(\(\mathsf{speed_{i}}\), \(\mathsf{impdk_{i}}\)) can be included in
-\(\bm{w}_{i}\) but their effects cannot be distinguished from
-\(\alpha_{i}\) unless we assume that they are uncorrelated with
-\(\alpha_{i}\) \citep[p.~488]{Wooldridge2002}. In other words, in the
-vector \(\bm{\zeta}\) (the effects of the predictors on the random
-intercepts), the coefficients for the item-invariant predictors are set
-to zero. This is not problematic in our case because the item-invariant
-predictors were fixed as a result of the randomized experimental
-setting. In later models, when we include individual-level predictors
-(e.g., sex, age, political orientation), we need to assume that they
-were uncorrelated with the individual effects (a likely problematic
-assumption), otherwise the effects will be biased.
+Finally, in the third model, we investigate the effects of some
+respondent characteristics, like sex, age, political interest,
+education, etc. This is an exploratory step and the inclusion of these
+characteristics should not impact the effects of the response latencies
+(slight deviations are to be expected due to missing values on these
+variables reducing the overall sample size) as they should already be
+controlled for in the fixed effects setup. For a more detailed
+explanation of the regression models, see the Appendix.
 
 \hypertarget{procedure}{%
 \subsection{Procedure}\label{procedure}}
@@ -616,7 +619,7 @@ assess whether the effect changes direction over the values of
 and optimizers (slower) tended towards substantive responses (albeit
 for, we hypothesize, wholly different reasons). The correlated random
 effects probit model described above involves including cluster means
-for the item- and individual varying (sometimes called level 1)
+for the item- and individual varying (sometimes called level-one)
 predictors.
 
 For the model with the quadratic response latency term (Model 2), we
@@ -631,32 +634,33 @@ furthermore it is unlikely that the effects can be given a causal
 interpretation due to the potential confounding by other unobserved
 respondent-related characteristics contained in \(\alpha_{i}\). The
 respondent-level predictors are: sex (female, male), age (in years,
-grand mean centered, range: (-26.753, 29.247), mean: 0, sd: 14.289),
+grand mean centered, range: (-26.742, 29.258), mean: 0, sd: 14.285),
 need for social approval (three-item grand mean centered additive
 index\footnote{Items: ``My decisions are sometimes unwise'', ``I
   sometimes tell lies if I have to'', ``There have been occasions when I
   have taken advantage of someone''
-  \citep{Paulhus1984, Paulhus1988, Hart2015, Blasberg2013}.}, range:
-(-6.371, 5.629), mean: 0, sd: 2.598), political interest (grand mean
-centered, range: (-2.49, 1.51), mean: 0, sd: 1.101), political
-orientation (0: very left, 10: very right; grand mean centered) attitude
-towards surveys (indicator of general motivation, three-item grand mean
-centered additive index\footnote{Items: ``Surveys are very important for
-  science, politics and the economy'', ``I always find the results of
-  surveys interesting'', ``Most of the time the results of surveys are
-  correct'' \citep{Stocke2006, Stocke2014}}, range: (-9.196, 2.804),
-mean: 0, sd: 2.167), time-pressure (indicator of general opportunity,
-grand mean centered\footnote{``I would have liked to have had more time
-  to fill out this questionnaire'', recoded so higher values mean more
-  opportunity (or less time pressure).}, range: (-3.108, 0.892), mean:
-0, sd: 0.926), education (low, high),\footnote{For the sake of
-  simplicity, we compare those with university entrance degrees (German:
-  ``Abitur'') to all other degrees.} lied (yes, no)\footnote{``We
-  realize we asked you some personal questions in this survey. To ensure
-  the quality of the data, we would like to ask you directly: Did you
-  provide false information on one or more of the questions?''}, and
-finished (yes, no; automatically generated variable: did the respondent
-reach the end of the survey?).
+  \citep{Paulhus1984, Paulhus1988, Hart2015, Blasberg2013}. Cronbach's
+  \(\alpha = 0.59\).}, range: (-6.371, 5.629), mean: 0, sd: 2.598),
+political interest (grand mean centered, range: (-2.49, 1.51), mean: 0,
+sd: 1.102), political orientation (0: very left, 10: very right; grand
+mean centered) attitude towards surveys (indicator of general
+motivation, three-item grand mean centered additive index\footnote{Items:
+  ``Surveys are very important for science, politics and the economy'',
+  ``I always find the results of surveys interesting'', ``Most of the
+  time the results of surveys are correct''
+  \citep{Stocke2006, Stocke2014}. Cronbach's \(\alpha = 0.74\).}, range:
+(-9.196, 2.804), mean: 0, sd: 2.169), time-pressure (indicator of
+general opportunity, grand mean centered\footnote{``I would have liked
+  to have had more time to fill out this questionnaire'', recoded so
+  higher values mean more opportunity (or less time pressure).}, range:
+(-3.108, 0.892), mean: 0, sd: 0.926), education (low, high),\footnote{For
+  the sake of simplicity, we compare those with university entrance
+  degrees (German: ``Abitur'') to all other degrees.} lied (yes,
+no)\footnote{``We realize we asked you some personal questions in this
+  survey. To ensure the quality of the data, we would like to ask you
+  directly: Did you provide false information on one or more of the
+  questions?''}, and finished (yes, no; automatically generated
+variable: did the respondent reach the end of the survey?).
 
 The regression models are estimated using the multilevel \texttt{lme4}
 \citep{R-lme4} package in \texttt{R} \citep{R-base}.
@@ -664,39 +668,124 @@ The regression models are estimated using the multilevel \texttt{lme4}
 \hypertarget{results}{%
 \section{Results}\label{results}}
 
+Before examining the results of the multivariate models, let us look
+descriptively at the distributions and overall prevalence of substantive
+responses to the fictitious organization questions.
+
+Table \ref{tab:freqs} shows the responses to the existent institutions
+and organization, while Table \ref{tab:freqs_fi} shows the responses to
+the fictitious ones. The ``don't know'' category was available only to
+those respondents in the ``explicit don't know'' experimental group. The
+percentages shown in the Table are over over all the experimental
+conditions. From this, we see that for the majority of the existent
+organizations (especially the first five in Table \ref{tab:freqs}), over
+90\% of the 1288 respondents answered substantively. The two political
+foundations, as well as the IPCC, elicited far fewer substantial
+responses (up to 40\% nonsubstantive in the case of the
+Rosa-Luxemburg-Foundation). This can likely bee seen as a function of
+the visibility of these organizations in day-to-day life. The first five
+organizations arguably come up much more often in the news and current
+events than the last three, which are somewhat more obscure. Interesting
+as well is the fact that the the `don't know' category was typically
+used more often than just ignoring the question and clicking on
+`continue'. This may be a first indication that the inclusion of an
+explicit `don't know' category increases the likelihood of
+nonsubstantive responses.
+
+Compared to the existent organizations, typically a larger proportion of
+the respondents answered `don't know' or skipped the question for the
+fictitious ones, see Table \ref{tab:freqs_fi}. However, up to around
+75\% of respondents claimed to have an opinion on the fictitious
+`Environmental Court', with just under 60\% apparently holding a
+favourable opinion of it. Just under 60\% claimed to have an opinion on
+the `Coastal Aid Agency'. Around 40--45\% of respondents claimed to have
+an opinion of the `Prague Energy Transition Initiative', `German Nuclear
+Forum' and `World Space Agency'. The Herbert-Schmaar-Foundation was
+intended to sound like an obscure policital foundation, similar to the
+existent Rosa-Luxemburg and Konrad-Adenauer foundations. Indeed, like
+those existent political foundations, respondents considered the
+`Herbert-Schmaar-Foundation' to be the most obscure of the made-up
+organizations; only around 23\% of respondents gave a substantive
+response to it.
+
+\begin{table}
+
+\begin{threeparttable}
+\caption{\label{tab:unnamed-chunk-3}\label{tab:freqs}Responses to existent institutions in percent}
+\centering
+\begin{tabular}[t]{lrrrrrrrr}
+\toprule
+  & BW & DWB & UN & GP & BKA & RLF & KAF & IPCC\\
+\midrule
+negative & 36.80 & 9.55 & 21.43 & 22.59 & 19.10 & 15.76 & 12.73 & 24.22\\
+positive & 56.37 & 86.10 & 71.43 & 71.20 & 72.13 & 42.62 & 62.73 & 44.18\\
+continue & 5.20 & 1.79 & 4.50 & 4.43 & 5.43 & 15.45 & 10.95 & 10.40\\
+don't know & 1.63 & 2.56 & 2.64 & 1.79 & 3.34 & 26.16 & 13.59 & 21.20\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item [] N = 1288. BW: German Armed Forces (Bundeswehr), DWB: Doctors without Borders, UN: United Nations, GP: Greenpeace, BKA: German Federal Criminal Police (Bundeskriminalamt), RLF: Rosa-Luxemburg-Foundation, KAF: Konrad-Adenauer-Foundation, IPCC: Intergovernmental Panel on Climate Change
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{table}
+
+\begin{threeparttable}
+\caption{\label{tab:unnamed-chunk-3}\label{tab:freqs_fi}Responses to fictitious institutions in percent}
+\centering
+\begin{tabular}[t]{lrrrrrr}
+\toprule
+  & EC & CAA & PETI & GNF & HSF & WSA\\
+\midrule
+negative & 15.92 & 10.95 & 15.37 & 22.28 & 10.48 & 13.59\\
+positive & 58.54 & 48.06 & 28.34 & 22.59 & 12.97 & 26.48\\
+continue & 8.54 & 11.72 & 18.48 & 17.86 & 30.90 & 21.35\\
+don't know & 17.00 & 29.27 & 37.81 & 37.27 & 45.65 & 38.59\\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item [] N = 1288. EC: Environmental Court, CAA: Coastal Aid Agency, PETI: Prague Energy Transition Initiative, GNF: German Nuclear Forum, HSF: Herbert-Schmaar-Foundation, WSA: World Space Agency
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 \begin{figure}
 \includegraphics[width=1\linewidth]{article_files/figure-latex/barchart-1} \caption{\label{fig:barchart2}Substantive answers to fictitious oganizations}\label{fig:barchart}
 \end{figure}
 
-Before discussing the results of the multivariate models, we first look
-descriptively at the effects of the experiments on the percentage of
-substantive responses, per item, see Figure \ref{fig:barchart2}. First
-of all, the barchart shows that sizable percentages of respondents gave
-substantive responses to our fictitious issues. For the first
-item,\footnote{The order of the items was not randomized. This was an
-  unfortunate decision in retrospect. Randomization has already been
-  included in the follow-up study.} the percentages of substantive
-responses were the highest, with over 80\% substantive responses in the
-implicit ``don't know'' treatment. The effect of an explicit ``don't
-know'' category, however, is striking: it often more than halved the
-percentages of substantive responses to fictitious issues. At the same
-time, even in the explicit ``don't know'' group, often upwards of 20\%
-of respondents still gave substantive responses. Interestingly, the
-speed vs.~accuracy instructions seem to have little effect on the
-percentages of substantive responses. If we follow the logic layed out
-above, that satisficers tend towards quick, heuristic-led substantive
-responses, then we would expect the speed condition to increase
-substantive responses. This is in fact what we observe, with slightly
-higher percentages of substantive answers on most items in the ``speed''
+Figure \ref{fig:barchart2} shows the effects of the experiments on the
+percentage of substantive responses, per item. The fictitious
+organizations are shown in order of appearance in the survey (e.g., the
+``European Court'' was the first fictitious organization). First, the
+barchart shows that sizable percentages of respondents gave substantive
+responses to our fictitious issues. For the first item,\footnote{The
+  order of the items was not randomized. This was an unfortunate
+  decision in retrospect. Randomization has already been included in the
+  follow-up study.} the percentages of substantive responses were the
+highest, with over 80\% substantive responses in the implicit ``don't
+know'' treatment. The effect of an explicit ``don't know'' category,
+however, is striking: it often more than halved the percentages of
+substantive responses to fictitious issues. At the same time, even in
+the explicit ``don't know'' group, often upwards of 20\% of respondents
+still gave substantive responses. Interestingly, the speed vs.~accuracy
+instructions seem to have little effect on the percentages of
+substantive responses. If we follow the logic layed out above, that
+satisficers tend towards quick, heuristic-led substantive responses,
+then we would expect the speed condition to increase substantive
+responses. This is in fact what we observe, with slightly higher
+percentages of substantive answers on most items in the ``speed''
 treatment. However, the differences are small and the multivariate
 regressions suggest they are on the edge of statistic significance, see
 Table \ref{tab:results}.
 
 Moving on to the regression models, we see in Model 1, which includes
 the response latencies as well as group or cluster means for them, along
-with the experimental conditions and item dummies, that the response
-latency variable is negative but not significant. Remember, the
-specification of the models means we can look at these like
+with the experimental conditions and item dummies, that the effect of
+the response latency variable is negative but not significant. Remember,
+the specification of the models means we can look at these like
 item-specific deviations from the respondent's overall response latency,
 which, for their part, are reflected in the group or ``cluster'' means.
 The coefficient for the cluster means is negative and in fact
@@ -721,6 +810,70 @@ same, the standard errors are too large to classify the effect as
 significant. What this means is that faster responses
 \textit{relative to one's own typical speed} do not significantly
 predict responses in this model.
+
+\begin{table}
+\caption{Correlated random effects probit regression models. DV: substantive responses.}
+\begin{center}
+\begin{small}
+\begin{threeparttable}
+\begin{tabular}{l D{)}{)}{9)3} D{)}{)}{9)5} D{)}{)}{9)5}}
+\toprule
+ & \multicolumn{1}{c}{Model 1} & \multicolumn{1}{c}{Model 2} & \multicolumn{1}{c}{Model 3} \\
+\midrule
+(Intercept)                    & 0.56 \; (0.13)^{***}  & 1.24 \; (0.20)^{***}    & 1.52 \; (1.04)         \\
+Response latencies (RL)        &                       &                         &                        \\
+\quad RL (demeaned)            & -0.01 \; (0.01)       & -0.03 \; (0.01)^{\circ} & -0.02 \; (0.02)        \\
+\quad Group (id) mean RL       & -0.08 \; (0.03)^{*}   & -0.52 \; (0.11)^{***}   & -0.48 \; (0.14)^{***}  \\
+Experiments                    &                       &                         &                        \\
+\quad Implicit don't know      & 1.45 \; (0.08)^{***}  & 1.44 \; (0.08)^{***}    & 1.54 \; (0.09)^{***}   \\
+\quad Speed instructions       & 0.17 \; (0.08)^{*}    & 0.18 \; (0.08)^{*}      & 0.14 \; (0.09)         \\
+Items (Ref.: EC)               &                       &                         &                        \\
+\quad CAA                      & -0.69 \; (0.06)^{***} & -0.69 \; (0.06)^{***}   & -0.76 \; (0.08)^{***}  \\
+\quad PETI                     & -1.34 \; (0.07)^{***} & -1.34 \; (0.07)^{***}   & -1.44 \; (0.08)^{***}  \\
+\quad GNF                      & -1.30 \; (0.07)^{***} & -1.31 \; (0.07)^{***}   & -1.40 \; (0.08)^{***}  \\
+\quad HSF                      & -2.35 \; (0.07)^{***} & -2.36 \; (0.07)^{***}   & -2.53 \; (0.09)^{***}  \\
+\quad WSA                      & -1.51 \; (0.07)^{***} & -1.51 \; (0.07)^{***}   & -1.59 \; (0.08)^{***}  \\
+Squared RL                     &                       &                         &                        \\
+\quad RL$^2$ (demeaned)        &                       & 0.00 \; (0.00)          & 0.00 \; (0.00)         \\
+\quad Group (id) mean RL$^2$   &                       & 0.06 \; (0.01)^{***}    & 0.05 \; (0.02)^{**}    \\
+Respondent-related variables   &                       &                         &                        \\
+\quad Male                     &                       &                         & 0.18 \; (0.09)^{*}     \\
+\quad Age                      &                       &                         & 0.01 \; (0.00)^{\circ} \\
+\quad Need for social approval &                       &                         & -0.00 \; (0.02)        \\
+\quad Political interest       &                       &                         & 0.21 \; (0.05)^{***}   \\
+\quad Political orientation    &                       &                         & 0.01 \; (0.02)         \\
+\quad Motivation               &                       &                         & 0.03 \; (0.02)         \\
+\quad Opportunity              &                       &                         & -0.05 \; (0.05)        \\
+\quad Education low            &                       &                         & 0.01 \; (0.10)         \\
+\quad Lied                     &                       &                         & 0.01 \; (0.22)         \\
+\quad Finished                 &                       &                         & -0.29 \; (1.01)        \\
+\midrule
+AIC                            & 7251.61               & 7230.00                 & 5056.28                \\
+BIC                            & 7328.00               & 7320.29                 & 5208.14                \\
+Log Likelihood                 & -3614.80              & -3602.00                & -2505.14               \\
+Num. obs.                      & 7671                  & 7671                    & 5448                   \\
+Num. groups: id                & 1286                  & 1286                    & 913                    \\
+Var: id (Intercept)            & 1.56                  & 1.52                    & 1.27                   \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\tiny{\item $^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; 
+                           $^{\circ}p<0.1$. Two-tailed test. 
+                           \item EC: Environmental Court, CAA: Coastal Aid Agency, PETI: Prague Energy Transition Initiative, GNF: German Nuclear Forum, HSF: Herbert-Schmaar-Foundation, WSA: World Space Agency.}
+\end{tablenotes}
+\end{threeparttable}
+\end{small}
+\label{tab:results}
+\end{center}
+\end{table}
+
+\begin{figure}
+\subfloat[\label{fig:rl-plota}Response latencies\label{fig:unnamed-chunk-6-1}]{\includegraphics[width=0.5\linewidth]{article_files/figure-latex/unnamed-chunk-6-1} }\subfloat[\label{fig:rl-plotb}Group (id) mean response latencies\label{fig:unnamed-chunk-6-2}]{\includegraphics[width=0.5\linewidth]{article_files/figure-latex/unnamed-chunk-6-2} }\caption{\label{fig:rl-plot}Predicted probability of substantive response over response latencies (Model 1)}\label{fig:unnamed-chunk-6}
+\end{figure}
+
+\begin{figure}
+\subfloat[\label{fig:rl-plot2a}Response latencies\label{fig:unnamed-chunk-7-1}]{\includegraphics[width=0.5\linewidth]{article_files/figure-latex/unnamed-chunk-7-1} }\subfloat[\label{fig:rl-plot2b}Group (id) mean response latencies\label{fig:unnamed-chunk-7-2}]{\includegraphics[width=0.5\linewidth]{article_files/figure-latex/unnamed-chunk-7-2} }\caption{\label{fig:rl-plot2}Predicted probability of substantive response over response latencies (Model 2)}\label{fig:unnamed-chunk-7}
+\end{figure}
 
 The implicit ``don't know'' category has a strong, highly significant
 effect on the probability of giving a substantive response. This
@@ -795,74 +948,166 @@ work as intended. Perhaps the measure of political interest here is a
 more valid measure of one's need for social approval than the index we
 used here.
 
-\begin{table}
-\caption{Correlated random effects probit regression models. DV: substantive responses.}
-\begin{center}
-\begin{small}
-\begin{threeparttable}
-\begin{tabular}{l D{)}{)}{9)3} D{)}{)}{9)5} D{)}{)}{9)5}}
-\toprule
- & \multicolumn{1}{c}{Model 1} & \multicolumn{1}{c}{Model 2} & \multicolumn{1}{c}{Model 3} \\
-\midrule
-(Intercept)                    & 0.54 \; (0.13)^{***}  & 1.09 \; (0.19)^{***}   & 1.46 \; (1.04)          \\
-Response latencies (RL)        &                       &                        &                         \\
-\quad RL                       & -0.01 \; (0.01)       & -0.04 \; (0.02)^{*}    & -0.04 \; (0.02)^{\circ} \\
-\quad Group (id) mean RL       & -0.06 \; (0.03)^{*}   & -0.37 \; (0.09)^{***}  & -0.35 \; (0.11)^{**}    \\
-Experiments                    &                       &                        &                         \\
-\quad Implicit don't know      & 1.45 \; (0.08)^{***}  & 1.45 \; (0.08)^{***}   & 1.55 \; (0.09)^{***}    \\
-\quad Speed instructions       & 0.17 \; (0.08)^{*}    & 0.18 \; (0.08)^{*}     & 0.14 \; (0.09)          \\
-Items (Ref.: EC)               &                       &                        &                         \\
-\quad CAA                      & -0.69 \; (0.06)^{***} & -0.70 \; (0.06)^{***}  & -0.77 \; (0.08)^{***}   \\
-\quad PETI                     & -1.34 \; (0.07)^{***} & -1.34 \; (0.07)^{***}  & -1.45 \; (0.08)^{***}   \\
-\quad GNF                      & -1.30 \; (0.07)^{***} & -1.31 \; (0.07)^{***}  & -1.40 \; (0.08)^{***}   \\
-\quad HSF                      & -2.35 \; (0.07)^{***} & -2.37 \; (0.07)^{***}  & -2.54 \; (0.09)^{***}   \\
-\quad WSA                      & -1.51 \; (0.07)^{***} & -1.52 \; (0.07)^{***}  & -1.59 \; (0.08)^{***}   \\
-Squared RL                     &                       &                        &                         \\
-\quad RL$^2$                   &                       & 0.00 \; (0.00)^{\circ} & 0.00 \; (0.00)          \\
-\quad Group (id) mean RL$^2$   &                       & 0.04 \; (0.01)^{***}   & 0.03 \; (0.01)^{**}     \\
-Respondent-related variables   &                       &                        &                         \\
-\quad Male                     &                       &                        & 0.18 \; (0.09)^{\circ}  \\
-\quad Age                      &                       &                        & 0.01 \; (0.00)^{\circ}  \\
-\quad Need for social approval &                       &                        & -0.00 \; (0.02)         \\
-\quad Political interest       &                       &                        & 0.21 \; (0.05)^{***}    \\
-\quad Political orientation    &                       &                        & 0.01 \; (0.02)          \\
-\quad Motivation               &                       &                        & 0.03 \; (0.02)          \\
-\quad Opportunity              &                       &                        & -0.05 \; (0.05)         \\
-\quad Education low            &                       &                        & 0.01 \; (0.10)          \\
-\quad Lied                     &                       &                        & 0.02 \; (0.22)          \\
-\quad Finished                 &                       &                        & -0.38 \; (1.02)         \\
-\midrule
-AIC                            & 7259.22               & 7239.48                & 5063.48                 \\
-BIC                            & 7335.62               & 7329.77                & 5215.37                 \\
-Log Likelihood                 & -3618.61              & -3606.74               & -2508.74                \\
-Num. obs.                      & 7676                  & 7676                   & 5453                    \\
-Num. groups: id                & 1287                  & 1287                   & 914                     \\
-Var: id (Intercept)            & 1.56                  & 1.53                   & 1.27                    \\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}[flushleft]
-\tiny{\item $^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; 
-                           $^{\circ}p<0.1$. Two-tailed test. 
-                           \item EC: Environmental Court, CAA: Coastal Aid Agency, PETI: Prague Energy Transition Initiative, GNF: German Nuclear Forum, HSF: Herbert-Schmaar-Foundation, WSA: World Space Agency.}
-\end{tablenotes}
-\end{threeparttable}
-\end{small}
-\label{tab:results}
-\end{center}
-\end{table}
-
-\begin{figure}
-\subfloat[\label{fig:rl-plota}Response latencies\label{fig:unnamed-chunk-4-1}]{\includegraphics[width=0.5\linewidth]{article_files/figure-latex/unnamed-chunk-4-1} }\subfloat[\label{fig:rl-plotb}Group (id) mean response latencies\label{fig:unnamed-chunk-4-2}]{\includegraphics[width=0.5\linewidth]{article_files/figure-latex/unnamed-chunk-4-2} }\caption{\label{fig:rl-plot}Predicted probability of substantive response over response latencies (Model 1)}\label{fig:unnamed-chunk-4}
-\end{figure}
-
-\begin{figure}
-\subfloat[\label{fig:rl-plot2a}Response latencies\label{fig:unnamed-chunk-5-1}]{\includegraphics[width=0.5\linewidth]{article_files/figure-latex/unnamed-chunk-5-1} }\subfloat[\label{fig:rl-plot2b}Group (id) mean response latencies\label{fig:unnamed-chunk-5-2}]{\includegraphics[width=0.5\linewidth]{article_files/figure-latex/unnamed-chunk-5-2} }\caption{\label{fig:rl-plot2}Predicted probability of substantive response over response latencies (Model 2)}\label{fig:unnamed-chunk-5}
-\end{figure}
-
 \hypertarget{conclusion-and-discussion}{%
 \section{Conclusion and discussion}\label{conclusion-and-discussion}}
 
 xxx
+
+\hypertarget{appendix}{%
+\section{Appendix}\label{appendix}}
+
+For the regression analysis, we use an unobserved effects probit model
+\citep{Wooldridge2002}. For a given respondent, \(i\), and a given item,
+\(j\), we can write the model as \begin{align}
+P(y_{ij} = 1 | \bm{x}_{i}, \bm{z}_{i}, \bm{d}_{j}, \alpha_{i}) = \Phi(\bm{x}_{ij}\bm{\beta} + \bm{z}_{i}\bm{\gamma} + \bm{d}_{j}\bm{\lambda} + \alpha_{i}), \ i = 1, \ldots, N, \ j = 1, \ldots, J \label{eq:probit}
+\end{align} where \(\Phi(\cdot)\) is the standard normal cumulative
+distribution function. \(\bm{x}_{ij}\) is a \(1 \times K_{1}\) vector of
+person- and item-varying covariates with associated coefficients in the
+\(K_{1} \times 1\) vector \(\bm{\beta}\). \(\bm{x}_{ij}\) holds the
+response latencies and their squared term in the second model onward.
+\(\bm{z}_{i}\) is a \(1 \times K_{2}\) vector of person-varying ---
+\emph{but not item-varying} --- covariates with coefficients in the
+\(K_{2} \times 1\) vector \(\bm{\gamma}\). \(\bm{z}_{i}\) holds the
+experimental variables (speed vs.~accuracy, implicit vs.~explicit
+``don't know''), the response latency person-means (along with a squared
+term, more on that below) as well as several other item-invariant
+variables included in the last model like sex, age, political interest,
+education, etc. \(\bm{d}_{j}\) is a \(1 \times (J - 1)\) vector
+indicating the current item with \((J - 1) \times 1\) coefficient vector
+\(\bm{\lambda}\). \(\alpha_{i}\) is a scalar representing the unobserved
+person-specific intercept. \(\alpha_{i}\) encompasses the sum of all
+unobserved item-invariant characteristics influencing the propensity for
+a given respondent to choose a substantive response (anything that is
+relatively stable over the course of answering the six questions, such
+as internet speed, distractedness, reading comprehension, native
+language, etc.).
+
+Note that the first equality in Equation \eqref{eq:probit} is the
+assumption of strict exogeneity, i.e., after controlling for the stable
+individual differences in \(\alpha_{i}\), the item-varying predictors in
+\(\bm{x}_{ij}\) measured for other items have no effect on the current
+item \citep[p.~483]{Wooldridge2002}. In other words, strict exogeneity
+essentially means here that, after controlling for the individual's
+usual response behaviour and contemporaneous response latency effect,
+the response latency on item \(j\) has no effect on the outcome of item
+\(m\), \(m \ne j\). This is why \(\bm{x}_{i}\) changes to
+\(\bm{x}_{ij}\) after the equals sign in equation \eqref{eq:probit}. We
+assume further that the only source of serial correlation is
+\(\alpha_{i}\), so that once we have conditioned on it, the errors are
+serially uncorrelated, and the likelihood function can be derived as the
+product of the individual probabilities for \(y_{ij}\).
+
+Correlations between the nonexperimental variables of interest (the
+response latencies) and unobserved item characteristics (e.g.,
+difficulty of the question, wording effects, etc.) are controlled for by
+including the item dummies in the equation. But we want to also allow
+(and control) for correlations between the individual effects and the
+response latencies. That is, we want to avoid confounding by
+respondent-specific characteristics. If, say, older respondents tended
+to answer more slowly than younger respondents, and older respondents
+also tended to give more substantive responses, then without controlling
+for age, the effect of response latencies on substantive responses would
+be biased. We can often control for age and other easily observed
+characteristics like sex and education, but other person-specific
+characteristics, like reading speed and comprehension skills, survey
+experience, distractedness over the course of the survey, etc., are
+harder to measure. All these things, however, that can be considered
+fairly stable, at least over the course of the survey, are included in
+the unobserved individual effects \(\alpha_{i}\). So, in order to rule
+out confounding due to correlations between unobserved components in
+\(\alpha_{i}\) and the response latencies, we want to specify a kind of
+binary outcome \textit{fixed effects} model. This will let us interpret
+the response latency effects as within-effects, reflecting changes in
+behaviour \emph{relative to one's usual behaviour} due to the response
+latencies alone and thus ensure that they are unbiased by between-person
+stable characteristics. Note, however, that for the effects to be given
+a causal interpretation, we need to still assume that the response
+latencies on each item are unrelated to the idiosyncratic error term,
+which encompass all unobserved influences on response behaviour
+particular to that specific item. By including item dummies, this
+assumption does not seem particularly restrictive.
+
+The \citet{Mundlak1978} approach to allowing for correlated individual
+effects involves making assumptions about the distribution of the
+individual effects \citep[p.~487]{Wooldridge2002}. Namely, we assume the
+individual effects are normally distributed as \begin{align}
+\alpha_{i} | \bm{x}_{i} & \sim \mathcal{N}(\psi + \bar{\bm{x}}_{i}\bm{\zeta}, \sigma^{2}_{\alpha}).
+\end{align} That is, we assume
+\(\alpha_{i} = \psi + \bar{\bm{x}}_{i}\bm{\zeta} + \upsilon_{i}\).
+\(\bm{\zeta}\) accounts for the correlations between the individual
+effects \(\alpha_{i}\) and the between-person part of the time-varying
+covariates, \(\bar{\bm{x}}_{i}\). Now we substitute this back into
+Equation \eqref{eq:probit} for \begin{align}
+P(y_{ij} = 1 | \bm{x}_{ij}, \bm{z}_{i}, \bm{d}_{j}) & = \Phi(\psi + \bm{x}_{ij}\bm{\beta} + \bm{z}_{i}\bm{\gamma} + \bm{d}_{j}\bm{\lambda} + \bar{\bm{x}}_{i}\bm{\zeta}), \ j = 1, \ldots, J. \label{eq:context}
+\end{align}
+
+With this formulation, the effects of interest, \(\bm{\beta}\),
+represent \emph{within-effects}, which we could clarify by writing them
+as \(\bm{\beta}^{W}\). In this case, it is the effect of the response
+latency on the probability of a substantive response \emph{relative to
+the overall probability of a substantive response} \citep{Bell2015}. Put
+differently, for a person who, say, tends to give substantive responses
+with high probability, we want to see if the response speed for a given
+item makes them change their usual behaviour, by reducing or increasing
+the probability relative to their typical behaviour.
+
+However, we can see the model also includes the person-means for the
+time-varying variables with \(\bar{\bm{x}}_{i}\), and these can be
+interesting in their own right. The effects associated with the person
+means, \(\bm{\zeta}\), represent the \emph{contextual effect}, i.e., the
+difference between the between-person and within-person effects,
+\(\bm{\zeta} = (\bm{\beta}^{B} - \bm{\beta}^{W})\), where
+\(\bm{\beta}^{B}\) are the between-effects
+\citep{Bell2015, Schunck2017}.
+
+Here, the between-effects refer to the effect of the average speed of a
+respondent on the probability of giving a substantive response. We call
+them \emph{between-person} or between-effects because they are
+interpreted as such: a person who answers more quickly than others on
+average tends to give more/less substantive responses (as the case may
+be). We would expect these to play a role if the average speed of a
+respondent was something that affected \emph{all} their responses, e.g.,
+if respondents that tended to answer faster than most others also tended
+to give pseudo opinions. So, we can use the definition of \(\bm{\zeta}\)
+above and rewrite Equation \eqref{eq:context} by collecting
+\(\bm{\beta}^{W}\) \begin{align}
+P(y_{ij} = 1 | \bm{x}_{ij}, \bm{z}_{i}, \bm{d}_{j}) & = \Phi(\psi + \bm{x}_{ij}\bm{\beta}^{W} + \bm{z}_{i}\bm{\gamma} + \bm{d}_{j}\bm{\lambda} + \bar{\bm{x}}_{i}(\bm{\beta}^{B} - \bm{\beta}^{W})) \\
+ & = \Phi(\psi + (\bm{x}_{ij} - \bar{\bm{x}}_{i})\bm{\beta}^{W} + \bm{z}_{i}\bm{\gamma} + \bm{d}_{j}\bm{\lambda} + \bar{\bm{x}}_{i}\bm{\beta}^{B}).
+\end{align}
+
+Essentially, we specify a multilevel model with random intercepts
+(representing the individual effects) and include the within-individual
+(or `cluster') means of the level-one variables as a predictor of the
+random intercepts \(\alpha_{i}\). The cluster means are thus correlated
+with both the outcome (the average outcome, so to speak) and the
+predictors in \(\bm{x}_{i}\). This covariance is partialled out by
+including both in the regression so that \(\bm{\beta}^{W}\) represent
+within-person effects that are unconfounded by \(\alpha_{i}\)
+\citep{Ruettenauer2019b, Hamaker2019, Wooldridge2002, Mundlak1978, Schunck2017}.
+In order to better interpret the between effects as such, and not as
+contextual effects, we use the demeaned version of the item-varying
+response latencies \((\bm{x}_{ij} - \bar{\bm{x}}_{i})\). Again, this
+does not change the interpretation of the within-effects, just the
+between-effects \citep{Schunck2017, Bell2015}.
+
+It is important to note that the item-invariant predictors
+(\(\mathsf{speed_{i}}\), \(\mathsf{impdk_{i}}\)) could be included in
+\(\bm{x}_{i}\) but their effects cannot be distinguished from
+\(\alpha_{i}\) unless we assume that they are uncorrelated with
+\(\alpha_{i}\) \citep[p.~488]{Wooldridge2002}. In other words, in the
+vector \(\bm{\zeta}\) (the effects of the predictors on the random
+intercepts), the coefficients for the item-invariant predictors would
+have to be set to zero. This is not particularly problematic in our case
+because the main item-invariant predictors were fixed as a result of the
+randomized experimental setting. In the final model, when we include
+individual-level predictors (e.g., sex, age, political orientation), we
+need to assume that they were uncorrelated with the individual effects
+(a potentially problematic assumption). This applies to the person-means
+of the response latencies as well: if average response speed is related
+to any unobserved components in \(\alpha_{i}\) (anything from reading
+comprehension skills, to political knowledge), then the effect of the
+person's average response speed cannot be interpreted as being causal
+and is then due in part to these unobserved confounders.
 
 \bibliographystyle{sageh}
 \bibliography{references}

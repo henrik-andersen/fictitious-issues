@@ -711,6 +711,7 @@ dfl$fi <- ifelse(dfl$item == "FI01_02" |
                    dfl$item == "FI01_12" | 
                    dfl$item == "FI01_14", 0, 1)
 
+
 head(dfl)
 
 table(dfl$response)
